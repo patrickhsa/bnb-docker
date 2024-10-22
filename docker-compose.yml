@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  banco_de_dados:
+    image: mysql
+    container_name: meu-mysql
+    ports: 
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD= 123456
+  database:
+    image: mysql
+    container_name: my-database
+    restart: always
+    volumes:
+      - /media/patrickhugo/Dados/Estudo/Fiap-Docker/mysql_data:/var/lib/mysql
+    ports:
+      - 8000:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD= 12345678
+      - MYSQL_DATABASE= db-docker
+      - MYSQL_USER= bnb-user
+      - MYSQL_PASSWORD= Admin1234
